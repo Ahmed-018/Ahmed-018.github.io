@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solar Vehicle Project | Ahmed Alharthy</title>
+<meta name="description" content="Automated solar-powered vehicle: ROS2 and Nav2 navigation, YOLO human detection, and a 100 W solar charging station. Senior design project at King Abdulaziz University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="me" href="index.html">Ahmed Alharthy</a>
+    <nav aria-label="Main">
+      <a href="index.html#projects">All projects</a>
+      <a href="assets/Ahmed_Alharthy_CV.pdf">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="case-head">
+    <h1>Automated Solar-Powered Vehicle</h1>
+    <p class="lede">A low-speed electric vehicle for the KAU campus that drives itself to a destination picked on a map, stops when a person steps in front of it, and charges from the sun.</p>
+  </div>
+
+  <div class="meta">
+    <div><b>My role</b>Embedded systems and software developer</div>
+    <div><b>Team</b>3 Computer Engineering students</div>
+    <div><b>When</b>Sep 2025 to May 2026</div>
+    <div><b>Result</b>Senior design project, grade A+</div>
+  </div>
+
+  <figure class="wide">
+    <img src="assets/img/vehicle-station.jpg" alt="Finished prototype vehicle with LiDAR and camera mast beside its solar panel charging station" width="902" height="507">
+    <figcaption>The final prototype next to its solar charging station.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>The problem</h2>
+    <p>Small electric vehicles on campus depend on a driver and on charging from the grid. The goal was a prototype that removes both: it navigates on its own using a saved map, stops safely around people, and gets its energy from a solar panel. The project also supports Saudi Vision 2030 goals for renewable energy and smart transport.</p>
+
+    <h2>What I built</h2>
+    <p>I was responsible for the autonomy software, running on ROS2 Humble:</p>
+    <ul>
+      <li><b>ROS2 architecture.</b> Nodes for the LiDAR, camera, Arduino bridge, TF transforms and RF2O laser odometry, so each part of the system can be developed and tested on its own.</li>
+      <li><b>Navigation with Nav2.</b> Mapping with the 2D LiDAR, localization on the saved map, and path planning to a goal chosen from a web page or RViz. I tested everything in Gazebo simulation before running it on the vehicle.</li>
+      <li><b>Human detection and emergency stop.</b> A YOLO-based camera node that publishes a stop signal when a person is in the path. The Arduino bridge stops the motors, and the vehicle resumes once the path is clear.</li>
+    </ul>
+  </div>
+
+  <figure class="wide">
+    <img src="assets/img/ros2-architecture.jpg" alt="System diagram: map server, AMCL and Nav2 send velocity commands to the Arduino bridge, which drives the motors; the camera processor sends a stop signal" width="1066" height="685">
+    <figcaption>How the software fits together: navigation, user interface, movement and safety stop.</figcaption>
+  </figure>
+
+  <div class="pair">
+    <figure>
+      <img src="assets/img/gazebo-map.jpg" alt="Gazebo simulation world used to test navigation" width="763" height="380">
+      <figcaption>Testing navigation in a Gazebo world before driving the real vehicle.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/img/lidar-map.jpg" alt="Map of a real corridor built from LiDAR scans, shown in RViz" width="673" height="479">
+      <figcaption>A real map built from LiDAR scans, shown in RViz.</figcaption>
+    </figure>
+  </div>
+
+  <figure class="wide">
+    <img src="assets/img/detection.jpg" alt="Terminal log showing a human detected and the robot stopping, next to a camera frame with a person detected at 0.86 confidence" width="902" height="262">
+    <figcaption>The detection node stopping the vehicle when a person appears, then resuming once the path is clear.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>Results</h2>
+    <p>Each requirement from the design specification was tested over five trials.</p>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Test</th><th>Requirement</th><th>Measured</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Destination accuracy</td><td>Stop within 1 m of the goal</td><td>5 of 5 within radius, 0.11 to 0.72 m error</td><td class="pass">Pass</td></tr>
+        <tr><td>Human detection</td><td>Detect every time, react in under 0.25 s</td><td>5 of 5 detected at 1.5 to 11.7 m, 81 to 95% confidence</td><td class="pass">Pass</td></tr>
+        <tr><td>Speed</td><td>0 to 25 km/h</td><td>2.4 km/h average, stable across trials</td><td class="pass">Pass</td></tr>
+        <tr><td>Stopping distance</td><td>Short, safe stop at test speed</td><td>0.13 to 0.18 m</td><td class="pass">Pass</td></tr>
+        <tr><td>Solar charging efficiency</td><td>75 to 85%</td><td>75.2 to 83.7%</td><td class="pass">Pass</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <h2>One thing I learned</h2>
+    <p>With a strict goal tolerance in Nav2, the vehicle kept moving back and forth trying to land on the exact point. Relaxing the tolerance so it stops as soon as it enters the 1 m zone made the arrival smooth and still met the requirement. Good engineering is often about tuning to the real requirement, not to perfection.</p>
+
+    <h2>The rest of the system</h2>
+    <p>My teammates built the steering and throttle hardware and the solar charging station: a 100 W panel, MPPT charge controller and 12 V lithium battery, monitored by an ESP32 web dashboard that logs readings to CSV.</p>
+  </div>
+
+  <figure class="wide">
+    <img src="assets/img/solar-dashboard.jpg" alt="Web dashboard showing solar voltage, battery voltage, and charging efficiency" width="902" height="417">
+    <figcaption>Live solar and battery monitoring dashboard used in the efficiency tests.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>What I would improve next</h2>
+    <ul>
+      <li>Move from the laptop to an embedded computer such as a Jetson Orin Nano.</li>
+      <li>Use a 3D LiDAR, an IMU and a depth camera for outdoor navigation.</li>
+      <li>Train the detection model on more classes for better obstacle classification.</li>
+    </ul>
+    <p>Tools: ROS2 Humble, Nav2, AMCL, Gazebo, RViz, Python, YOLO, 2D LiDAR, Arduino Uno, BTS7960 motor driver.</p>
+    <p><a href="index.html#projects">Back to all projects</a></p>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div><b>Ahmed Alharthy</b><br><a href="mailto:ahmedalharthy018@gmail.com">ahmedalharthy018@gmail.com</a></div>
+    <div><a href="https://github.com/Ahmed-018">GitHub</a> | <a href="assets/Ahmed_Alharthy_CV.pdf">CV (PDF)</a></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahmed Alharthy | Computer Engineer</title>
+<meta name="description" content="Portfolio of Ahmed Alharthy, Electrical & Computer Engineering graduate from King Abdulaziz University: autonomous robotics, networks, and embedded systems projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="me" href="index.html">Ahmed Alharthy</a>
+    <nav aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="assets/Ahmed_Alharthy_CV.pdf">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <h1>Ahmed Alharthy</h1>
+      <p class="role">Electrical &amp; Computer Engineer. I build autonomous systems and work on the networks and power that keep them running.</p>
+      <ul class="facts">
+        <li>B.Sc. Electrical Engineering (Computer), King Abdulaziz University, graduating Dec 2026</li>
+        <li>GPA 4.95 / 5.00</li>
+        <li>Co-op trainee, Saudi Aramco IT Infrastructure (2026)</li>
+        <li>IELTS Academic 7.5 (C1)</li>
+      </ul>
+      <div class="actions">
+        <a class="btn primary" href="assets/Ahmed_Alharthy_CV.pdf">Download CV (PDF)</a>
+        <a class="btn" href="mailto:ahmedalharthy018@gmail.com">Email me</a>
+        <a class="btn" href="https://github.com/Ahmed-018">GitHub</a>
+      </div>
+    </div>
+    <figure>
+      <img src="assets/img/vehicle-hero.jpg" alt="Autonomous electric vehicle prototype with LiDAR mast parked next to a solar panel and MPPT charge controller" width="1068" height="601">
+      <figcaption>Senior design project: autonomous vehicle with its solar charging station, KAU, 2026.</figcaption>
+    </figure>
+  </div>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <article class="featured">
+        <a href="solar-vehicle.html"><img src="assets/img/ros2-architecture.jpg" alt="ROS2 system diagram showing navigation, user interface, movement, and safety stop subsystems" width="1066" height="685" style="border-radius:8px;border:1px solid var(--line);background:#fff"></a>
+        <div>
+          <h3>Automated Solar-Powered Vehicle</h3>
+          <p class="tags">Senior design project, grade A+ | ROS2, Nav2, Python, YOLO, LiDAR, Arduino | Team of 3</p>
+          <p>A small electric vehicle that drives itself to a destination chosen on a map, stops for people, and charges from a 100 W solar panel. I developed the ROS2 navigation stack and the camera-based human detection that triggers the emergency stop.</p>
+          <div class="results">
+            <ul>
+              <li>Reached the destination in 5 of 5 trials, within the 1 m target radius</li>
+              <li>Detected people in 5 of 5 trials at up to 11.7 m</li>
+              <li>Solar charging efficiency of 75 to 84%, meeting the 75 to 85% target</li>
+            </ul>
+          </div>
+          <a class="btn primary" href="solar-vehicle.html">Read the full project</a>
+        </div>
+      </article>
+
+      <ul class="more">
+        <li>
+          <div><h3>Ball and Beam Control System</h3><p class="tags">MATLAB, Simulink, PID and lead control | Team of 5</p></div>
+          <p>Modeled an unstable ball-and-beam system and designed PD and lead controllers that settle in about 2.4 s with under 5% overshoot.</p>
+          <a href="ball-and-beam.html">See the project</a>
+        </li>
+        <li>
+          <div><h3>Stock Market Simulator</h3><p class="tags">Java, OOP, GUI | Team project</p></div>
+          <p>Market simulation where trader bots (random, RSI, moving average) compete, plus an advanced bot using RSI and momentum with stop-loss and profit-taking rules.</p>
+          <a href="https://github.com/Abdullah-BS/Stock-Market-Simulator-EE364">Code on GitHub</a>
+        </li>
+        <li>
+          <div><h3>8-Bit CPU Hardware Design</h3><p class="tags">Verilog, ModelSim, Intel Quartus</p></div>
+          <p>Designed an 8-bit CPU (datapath, control unit and ALU) in Verilog and verified instruction execution through ModelSim waveform simulation.</p>
+          <span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div class="job">
+        <div class="when">Jun 2026 to present<br>Eastern Province, Saudi Arabia</div>
+        <div>
+          <h3>Engineering Co-op Trainee, Saudi Aramco</h3>
+          <p class="tags">IT Infrastructure Department | Facility (power) and Transmission (optical networks) teams</p>
+          <ul>
+            <li>Supported the decommissioning of legacy telecom equipment at 6 of 30 upgraded sites: tracing live power feeds, isolating fuses, and safely terminating and labeling cables.</li>
+            <li>Tested and fault-isolated communication circuits with a remote team using an HP 4934A Transmission Impairment Measuring Set (TIMS) and jackfield.</li>
+            <li>Learned the company's optical backbone: DWDM and OTN transport, ring protection with automatic reroute, and layered router architecture.</li>
+            <li>Maintained communication-site power systems: 480 VAC to 48 VDC rectifiers, battery banks, inverters, transfer switches and standby generators.</li>
+            <li>Migrated a room uplink from copper to fiber to add network redundancy.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap cols">
+      <div>
+        <h3>Education</h3>
+        <p><b>King Abdulaziz University, Jeddah</b></p>
+        <p>B.Sc. Electrical Engineering (Computer)<br>2021 to Dec 2026, GPA 4.95 / 5.00</p>
+        <p>Certificate of Excellence, 2022 to 2026</p>
+      </div>
+      <div>
+        <h3>Certifications and exams</h3>
+        <ul>
+          <li>IELTS Academic, overall 7.5 (C1), Aug 2026</li>
+          <li>SCE Fundamentals of Engineering (Electrical &amp; Computer), preparing for 2027</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Activities</h3>
+        <ul>
+          <li>Technical team, Protothon prototyping hackathon, KAU Makers Club (250 volunteer hours)</li>
+          <li>Marketing team, RoboCup robotics competition, ECE Club</li>
+          <li>Projects management team, ECE Club, 2023 to 2025</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="cols" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        <div><h3>Software</h3><p>Python, C, C++, Java, Verilog, MATLAB, Git, Linux</p></div>
+        <div><h3>Robotics and AI</h3><p>ROS2, Nav2, Gazebo, RViz, YOLO, OpenCV, Simulink</p></div>
+        <div><h3>Hardware and lab</h3><p>Arduino, Raspberry Pi, ESP32, FPGA, oscilloscope, multimeter, circuit simulation, 3D printing</p></div>
+        <div><h3>Networking</h3><p>TCP/IP, IPv4 and IPv6 addressing, routing and switching fundamentals, Cisco Packet Tracer</p></div>
+        <div><h3>Design and office</h3><p>SolidWorks 3D CAD modeling, AutoCAD, engineering drawing and sketching, Microsoft Word, Excel, PowerPoint, Canva</p></div>
+        <div><h3>Languages</h3><p>Arabic (native), English (fluent, IELTS 7.5)</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <b>Get in touch</b><br>
+      <a href="mailto:ahmedalharthy018@gmail.com">ahmedalharthy018@gmail.com</a> | +966 56 650 6308
+    </div>
+    <div>
+      <a href="https://github.com/Ahmed-018">GitHub</a> |
+      <a href="assets/Ahmed_Alharthy_CV.pdf">CV (PDF)</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

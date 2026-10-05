@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ball and Beam Control | Ahmed Alharthy</title>
+<meta name="description" content="Ball and beam control system: modeling, PD controller and root-locus lead compensator design in MATLAB and Simulink. EE331 project, King Abdulaziz University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="me" href="index.html">Ahmed Alharthy</a>
+    <nav aria-label="Main">
+      <a href="index.html#projects">All projects</a>
+      <a href="assets/Ahmed_Alharthy_CV.pdf">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="case-head">
+    <h1>Ball and Beam Control System</h1>
+    <p class="lede">Keeping a rolling ball at an exact spot on a tilting beam. The system is unstable on its own, so it needs a feedback controller to work at all.</p>
+  </div>
+
+  <div class="meta">
+    <div><b>Course</b>EE331 Automatic Control</div>
+    <div><b>Team</b>5 students</div>
+    <div><b>When</b>Nov 2025</div>
+    <div><b>Tools</b>MATLAB, Simulink</div>
+  </div>
+
+  <div class="prose">
+    <h2>The problem</h2>
+    <p>A motor tilts the beam through a lever arm, and gravity rolls the ball along it. If the angle is not corrected constantly, the ball rolls off. We modeled the system from the physics of a real lab setup and found it behaves as a double integrator, P(s) &asymp; 0.72 / s&sup2;, which is marginally stable.</p>
+    <p>Target for a 0.25 m step in ball position: <b>settling time under 3 s</b> and <b>overshoot under 5%</b>.</p>
+
+    <h2>Why simple control fails</h2>
+    <p>Proportional control alone only makes the ball swing back and forth forever. It never settles.</p>
+  </div>
+
+  <div class="pair">
+    <figure>
+      <img src="assets/img/bb-p-only.jpg" alt="Step response with proportional control only, oscillating without settling" width="702" height="532">
+      <figcaption>P-only control: the ball keeps oscillating.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/img/bb-pd.jpg" alt="Step response with PD control settling quickly near 0.25 m" width="700" height="531">
+      <figcaption>PD control (Kp = 5, Kd = 12): settles in about 2.4 s.</figcaption>
+    </figure>
+  </div>
+
+  <div class="prose">
+    <h2>Two designs that work</h2>
+    <ul>
+      <li><b>PD controller.</b> Adding derivative action damps the motion. With Kp = 5 and Kd = 12 the response settles in about 2.42 s with 3.9% overshoot. No integral term was needed, since the plant already has zero steady-state error for a step.</li>
+      <li><b>Lead compensator (root locus).</b> A lead compensator with a zero at &minus;0.01 and a pole at &minus;5 bends the root locus into the target region. A gain of about 8.5 gives a settling time of about 2.4 s with almost no overshoot.</li>
+    </ul>
+  </div>
+
+  <div class="pair">
+    <figure>
+      <img src="assets/img/bb-rootlocus.jpg" alt="Root locus of the plant with the lead compensator" width="989" height="624">
+      <figcaption>Root locus with the lead compensator.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/img/bb-lead.jpg" alt="Closed-loop step response with lead compensator reaching 0.25 m smoothly" width="1040" height="622">
+      <figcaption>Lead-compensated step response: smooth, no overshoot.</figcaption>
+    </figure>
+  </div>
+
+  <div class="prose">
+    <h2>Simulink check</h2>
+    <p>We built the system in Simulink and compared three cases on the same input: open loop (the ball runs away), closed loop without a controller (it oscillates), and closed loop with the lead compensator (it settles at 0.25 m in under 3 s).</p>
+  </div>
+
+  <figure class="wide">
+    <img src="assets/img/bb-simulink.jpg" alt="Simulink model comparing open-loop, closed-loop and compensated ball and beam systems" width="1458" height="656">
+    <figcaption>Simulink model comparing the three cases.</figcaption>
+  </figure>
+  <figure class="wide">
+    <img src="assets/img/bb-responses.jpg" alt="Simulated responses: open loop grows without limit, uncompensated loop oscillates, compensated loop settles" width="1045" height="543">
+    <figcaption>Open loop (runs away), uncompensated (oscillates), compensated (settles).</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>Results</h2>
+  </div>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Controller</th><th>Settling time (target &lt; 3 s)</th><th>Overshoot (target &lt; 5%)</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>P only</td><td>Never settles</td><td>Oscillates</td><td>Fail</td></tr>
+        <tr><td>PD (Kp = 5, Kd = 12)</td><td>2.42 s</td><td>3.9%</td><td class="pass">Pass</td></tr>
+        <tr><td>Lead compensator (k &asymp; 8.5)</td><td>2.4 s</td><td>&asymp; 0%</td><td class="pass">Pass</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p><a href="index.html#projects">Back to all projects</a></p>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div><b>Ahmed Alharthy</b><br><a href="mailto:ahmedalharthy018@gmail.com">ahmedalharthy018@gmail.com</a></div>
+    <div><a href="https://github.com/Ahmed-018">GitHub</a> | <a href="assets/Ahmed_Alharthy_CV.pdf">CV (PDF)</a></div>
+  </div>
+</footer>
+</body>
+</html>
