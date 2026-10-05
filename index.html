@@ -14,15 +14,17 @@
 
 <header class="bar">
   <div class="wrap">
-    <a class="me" href="index.html">Ahmed Alharthy</a>
+    <a class="me" href="index.html"><span class="mark">AA</span>Ahmed Alharthy</a>
     <nav aria-label="Main">
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
-      <a href="assets/Ahmed_Alharthy_CV.pdf">CV</a>
+      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
+      <a class="cv" href="assets/Ahmed_Alharthy_CV.pdf">CV</a>
     </nav>
   </div>
+  <hr class="divider">
 </header>
 
 <main>
@@ -31,15 +33,15 @@
       <h1>Ahmed Alharthy</h1>
       <p class="role">Electrical &amp; Computer Engineer. I build autonomous robots and the software that drives them.</p>
       <ul class="facts">
-        <li>B.Sc. Electrical Engineering (Computer), King Abdulaziz University, graduating Dec 2026</li>
-        <li>GPA 4.95 / 5.00</li>
-        <li>Co-op trainee, Saudi Aramco IT Infrastructure (current)</li>
-        <li>IELTS Academic 7.5 (C1)</li>
+        <li><b>4.95 / 5.00</b>GPA, King Abdulaziz University</li>
+        <li><b>Saudi Aramco</b>Co-op trainee, IT Infrastructure (current)</li>
+        <li><b>A+ senior project</b>Autonomous vehicle (ROS2, YOLO)</li>
+        <li><b>IELTS 7.5</b>Academic, CEFR C1</li>
       </ul>
       <div class="actions">
-        <a class="btn primary" href="assets/Ahmed_Alharthy_CV.pdf">Download CV (PDF)</a>
-        <a class="btn" href="mailto:ahmedalharthy018@gmail.com">Email me</a>
-        <a class="btn" href="https://github.com/Ahmed-018">GitHub</a>
+        <a class="btn primary" href="assets/Ahmed_Alharthy_CV.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><polyline points="7 10 12 15 17 10"/><path d="M5 21h14"/></svg>Download CV</a>
+        <a class="btn" href="mailto:ahmedalharthy018@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>Email me</a>
+        <a class="btn" href="https://github.com/Ahmed-018"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>GitHub</a>
       </div>
     </div>
     <figure>
@@ -47,122 +49,153 @@
         <source src="assets/video/hero-loop.webm" type="video/webm">
         <source src="assets/video/hero-loop.mp4" type="video/mp4">
       </video>
-      <figcaption>My senior design project driving itself on campus. <a href="solar-vehicle.html#video">Watch the full video</a></figcaption>
+      <figcaption><span>My senior design project driving itself on campus.</span><a class="watch" href="solar-vehicle.html#video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the full video</a></figcaption>
     </figure>
   </div>
+  <div class="wrap next-wrap"><a class="next-link" href="#projects"><span>Projects</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a></div>
 
-  <section id="projects">
+  <hr class="divider soft">
+
+  <section id="projects" data-label="Projects">
     <div class="wrap">
-      <h2>Projects</h2>
-      <article class="featured">
-        <a href="solar-vehicle.html"><img src="assets/img/ros2-architecture.jpg" alt="ROS2 system diagram showing navigation, user interface, movement, and safety stop subsystems" width="1066" height="685" style="border-radius:8px;border:1px solid var(--line);background:#fff"></a>
+      <div class="sec-head">
+        <h2>Projects</h2>
+        <p>Photos, results and code from the work I am proudest of.</p>
+      </div>
+
+      <article class="featured card">
+        <a class="shot" href="solar-vehicle.html"><img src="assets/img/ros2-architecture.jpg" alt="ROS2 system diagram showing navigation, user interface, movement, and safety stop subsystems" width="1066" height="685"></a>
         <div>
-          <h3>Automated Solar-Powered Vehicle</h3>
-          <p class="tags">Senior design project, grade A+ | ROS2, Nav2, Python, YOLO, LiDAR, Arduino | Team of 3</p>
-          <p>A small electric vehicle that drives itself to a destination chosen on a map, stops for people, and charges from a 100 W solar panel. I developed the ROS2 navigation stack and the camera-based human detection that triggers the emergency stop.</p>
-          <div class="results">
-            <ul>
-              <li>Reached the destination in 5 of 5 trials, within the 1 m target radius</li>
-              <li>Detected people in 5 of 5 trials at up to 11.7 m</li>
-              <li>Solar charging efficiency of 75 to 84%, meeting the 75 to 85% target</li>
-            </ul>
+          <span class="badge">Senior design project, grade A+</span>
+          <h3>Automated Vehicle System</h3>
+          <ul class="chips"><li class="hl">ROS2</li><li>Nav2</li><li>Python</li><li class="hl">YOLO</li><li>LiDAR</li><li>Arduino</li><li>Team of 3</li></ul>
+          <p>A small electric vehicle that drives itself to a destination chosen on a map and stops when a person steps in front of it. I built the ROS2 navigation and the camera-based human detection that triggers the emergency stop.</p>
+          <ul class="results">
+            <li><b>5 / 5</b>Reached the destination within the 1 m target radius</li>
+            <li><b>11.7 m</b>Detected people in every trial, up to this distance</li>
+            <li><b>&lt; 0.25 s</b>Reaction time to stop when a person appears, meeting the target</li>
+          </ul>
+          <div class="card-actions">
+            <a class="btn primary" href="solar-vehicle.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="14 3 14 9 20 9"/></svg>See the project</a>
+            <a class="btn teal" href="solar-vehicle.html#video"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch the video</a>
           </div>
-          <a class="btn primary" href="solar-vehicle.html">Read the full project</a>
         </div>
       </article>
 
-      <ul class="more">
-        <li>
-          <div><h3>Ball and Beam Control System</h3><p class="tags">MATLAB, Simulink, PID and lead control | Team of 5</p></div>
+      <div class="grid3">
+        <article class="proj card">
+          <div class="icon i-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 12c2.5-6 5-6 7.5 0s5 6 7.5 0 3.5-4 5-2"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+          <h3>Ball and Beam Control System</h3>
+          <ul class="chips"><li>MATLAB</li><li>Simulink</li><li>PID</li><li>Root locus</li></ul>
           <p>Modeled an unstable ball-and-beam system and designed PD and lead controllers that settle in about 2.4 s with under 5% overshoot.</p>
-          <a href="ball-and-beam.html">See the project</a>
-        </li>
-        <li>
-          <div><h3>Stock Market Simulator</h3><p class="tags">Java, OOP, GUI | Team project</p></div>
-          <p>Market simulation where trader bots (random, RSI, moving average) compete, plus an advanced bot using RSI and momentum with stop-loss and profit-taking rules.</p>
-          <a href="https://github.com/Abdullah-BS/Stock-Market-Simulator-EE364">Code on GitHub</a>
-        </li>
-        <li>
-          <div><h3>8-Bit CPU Hardware Design</h3><p class="tags">Verilog, ModelSim, Intel Quartus</p></div>
+          <div class="card-actions"><a class="btn small primary" href="ball-and-beam.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="14 3 14 9 20 9"/></svg>See the project</a></div>
+        </article>
+        <article class="proj card">
+          <div class="icon i-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Stock Market Simulator</h3>
+          <ul class="chips"><li>Java</li><li>OOP</li><li>GUI</li><li>Team project</li></ul>
+          <p>Trader bots (random, RSI, moving average) compete in a simulated market, plus an advanced bot using RSI and momentum with stop-loss and profit-taking rules.</p>
+          <div class="card-actions"><a class="btn small teal" href="https://github.com/Abdullah-BS/Stock-Market-Simulator-EE364"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Code on GitHub</a></div>
+        </article>
+        <article class="proj card">
+          <div class="icon i-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>
+          <h3>8-Bit CPU Hardware Design</h3>
+          <ul class="chips"><li>Verilog</li><li>ModelSim</li><li>Intel Quartus</li></ul>
           <p>Designed an 8-bit CPU (datapath, control unit and ALU) in Verilog and verified instruction execution through ModelSim waveform simulation.</p>
-          <span></span>
-        </li>
-      </ul>
+          <span class="note">Course project, Digital Design</span>
+        </article>
+      </div>
     </div>
+    <div class="next-wrap"><a class="next-link" href="#experience"><span>Experience</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a></div>
   </section>
 
-  <section id="experience">
+  <hr class="divider soft">
+
+  <section id="experience" data-label="Experience">
     <div class="wrap">
-      <h2>Experience</h2>
-      <div class="job">
-        <div class="when">Jun 2026 to present<br>Eastern Province, Saudi Arabia</div>
+      <div class="sec-head"><h2>Experience</h2></div>
+      <div class="job card">
+        <div class="when"><b>Jun 2026 to present</b>Eastern Province, Saudi Arabia<br><span class="live">In progress</span></div>
         <div>
           <h3>Engineering Co-op Trainee, Saudi Aramco</h3>
-          <p class="tags">IT Infrastructure Department | Facility (power) and Transmission (optical networks) teams</p>
+          <p class="org">IT Infrastructure Department | Facility and Transmission teams</p>
           <ul>
-            <li>Supported the decommissioning of legacy telecom equipment at 6 of 30 upgraded sites: tracing live power feeds, isolating fuses, and safely terminating and labeling cables.</li>
-            <li>Tested and fault-isolated communication circuits with a remote team using an HP 4934A Transmission Impairment Measuring Set (TIMS) and jackfield.</li>
-            <li>Learned the company's optical backbone: DWDM and OTN transport, ring protection with automatic reroute, and layered router architecture.</li>
-            <li>Maintained communication-site power systems: 480 VAC to 48 VDC rectifiers, battery banks, inverters, transfer switches and standby generators.</li>
-            <li>Migrated a room uplink from copper to fiber to add network redundancy.</li>
+            <li>Decommissioning legacy telecom equipment at upgraded sites (6 of 30 so far): tracing live power feeds, isolating fuses, and safely terminating and labeling cables.</li>
+            <li>Testing communication circuits end to end with a remote team using a TIMS analyzer and jackfield to locate faults.</li>
+            <li>Working with the company's optical backbone: DWDM and OTN transport, ring protection, and layered router architecture.</li>
+            <li>Maintaining communication-site power systems: 48 VDC rectifiers, battery banks, inverters and standby generators.</li>
+            <li>Moved a room uplink from copper to fiber to add network redundancy.</li>
           </ul>
         </div>
       </div>
     </div>
+    <div class="next-wrap"><a class="next-link" href="#education"><span>Education</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a></div>
   </section>
 
-  <section id="education">
-    <div class="wrap cols">
-      <div>
-        <h3>Education</h3>
-        <p><b>King Abdulaziz University, Jeddah</b></p>
-        <p>B.Sc. Electrical Engineering (Computer)<br>2021 to Dec 2026, GPA 4.95 / 5.00</p>
-        <p>Certificate of Excellence, 2022 to 2026</p>
-      </div>
-      <div>
-        <h3>Certifications and exams</h3>
-        <ul>
-          <li>IELTS Academic, overall 7.5 (C1), Aug 2026</li>
-          <li>SCE Fundamentals of Engineering (Electrical &amp; Computer), preparing for 2027</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Activities</h3>
-        <ul>
-          <li>Technical team, Protothon prototyping hackathon, KAU Makers Club (250 volunteer hours)</li>
-          <li>Marketing team, RoboCup robotics competition, ECE Club</li>
-          <li>Projects management team, ECE Club, 2023 to 2025</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <hr class="divider soft">
 
-  <section>
+  <section id="education" data-label="Education">
     <div class="wrap">
-      <h2>Skills</h2>
-      <div class="cols" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-        <div><h3>Software</h3><p>Python, C, C++, Java, Verilog, MATLAB, Git, Linux</p></div>
-        <div><h3>Robotics and AI</h3><p>ROS2, Nav2, Gazebo, RViz, YOLO, OpenCV, Simulink</p></div>
-        <div><h3>Hardware and lab</h3><p>Arduino, Raspberry Pi, ESP32, FPGA, oscilloscope, multimeter, circuit simulation, 3D printing</p></div>
-        <div><h3>Networking</h3><p>TCP/IP, IPv4 and IPv6 addressing, routing and switching fundamentals, Cisco Packet Tracer</p></div>
-        <div><h3>Design and office</h3><p>SolidWorks 3D CAD modeling, AutoCAD, engineering drawing and sketching, Microsoft Word, Excel, PowerPoint, Canva</p></div>
-        <div><h3>Languages</h3><p>Arabic (native), English (fluent, IELTS 7.5)</p></div>
+      <div class="sec-head"><h2>Education and activities</h2></div>
+      <div class="cols">
+        <div class="info card">
+          <h3><span class="dot"></span>Education</h3>
+          <p><b>King Abdulaziz University, Jeddah</b></p>
+          <p>B.Sc. Electrical Engineering (Computer)<br>2021 to Dec 2026, GPA 4.95 / 5.00</p>
+          <p>Certificate of Excellence, 2022 to 2026</p>
+        </div>
+        <div class="info card">
+          <h3><span class="dot"></span>Certifications and exams</h3>
+          <ul>
+            <li>IELTS Academic, overall 7.5 (C1), Aug 2026</li>
+            <li>SCE Fundamentals of Engineering (Electrical &amp; Computer), preparing for 2027</li>
+          </ul>
+        </div>
+        <div class="info card">
+          <h3><span class="dot"></span>Activities</h3>
+          <ul>
+            <li>Technical team, Protothon prototyping hackathon, KAU Makers Club (250 volunteer hours)</li>
+            <li>Marketing team, RoboCup robotics competition, ECE Club</li>
+            <li>Projects management team, ECE Club, 2023 to 2025</li>
+          </ul>
+        </div>
       </div>
     </div>
+    <div class="next-wrap"><a class="next-link" href="#skills"><span>Skills</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a></div>
+  </section>
+
+  <hr class="divider soft">
+
+  <section id="skills" data-label="Skills">
+    <div class="wrap">
+      <div class="sec-head"><h2>Skills</h2></div>
+      <div class="cols auto">
+        <div class="info card"><h3><span class="dot"></span>Software</h3><ul class="chips"><li>Python</li><li>C</li><li>C++</li><li>Java</li><li>Verilog</li><li>MATLAB</li><li>Git</li><li>Linux</li></ul></div>
+        <div class="info card"><h3><span class="dot"></span>Robotics and AI</h3><ul class="chips"><li>ROS2</li><li>Nav2</li><li>Gazebo</li><li>RViz</li><li>YOLO</li><li>OpenCV</li><li>Simulink</li></ul></div>
+        <div class="info card"><h3><span class="dot"></span>Hardware and lab</h3><ul class="chips"><li>Arduino</li><li>Raspberry Pi</li><li>ESP32</li><li>FPGA</li><li>Oscilloscope</li><li>Multimeter</li><li>Circuit simulation</li><li>3D printing</li></ul></div>
+        <div class="info card"><h3><span class="dot"></span>Networking</h3><ul class="chips"><li>TCP/IP</li><li>IPv4 / IPv6</li><li>Routing and switching</li><li>Cisco Packet Tracer</li></ul></div>
+        <div class="info card"><h3><span class="dot"></span>Design and office</h3><ul class="chips"><li>SolidWorks 3D CAD</li><li>AutoCAD</li><li>Engineering drawing</li><li>Word</li><li>Excel</li><li>PowerPoint</li><li>Canva</li></ul></div>
+        <div class="info card"><h3><span class="dot"></span>Languages</h3><ul class="chips"><li>Arabic (native)</li><li>English (fluent, IELTS 7.5)</li></ul></div>
+      </div>
+    </div>
+    <div class="next-wrap"><a class="next-link" href="#contact"><span>Contact</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a></div>
   </section>
 </main>
 
-<footer id="contact">
+<hr class="divider">
+<footer id="contact" data-label="Contact">
   <div class="wrap">
     <div>
-      <b>Get in touch</b><br>
-      <a href="mailto:ahmedalharthy018@gmail.com">ahmedalharthy018@gmail.com</a> | +966 56 650 6308
+      <h2>Let's talk</h2>
+      <p><a href="mailto:ahmedalharthy018@gmail.com">ahmedalharthy018@gmail.com</a> | +966 56 650 6308 | Jeddah, Saudi Arabia</p>
     </div>
-    <div>
-      <a href="https://github.com/Ahmed-018">GitHub</a> |
-      <a href="assets/Ahmed_Alharthy_CV.pdf">CV (PDF)</a>
+    <div class="card-actions">
+      <a class="btn primary" href="mailto:ahmedalharthy018@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>Email me</a>
+      <a class="btn" href="assets/Ahmed_Alharthy_CV.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><polyline points="7 10 12 15 17 10"/><path d="M5 21h14"/></svg>CV (PDF)</a>
+      <a class="btn" href="https://github.com/Ahmed-018"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>GitHub</a>
     </div>
   </div>
 </footer>
+<script src="assets/reveal.js" defer></script>
 </body>
 </html>
