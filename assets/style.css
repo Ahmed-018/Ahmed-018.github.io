@@ -54,7 +54,8 @@ img { max-width: 100%; height: auto; display: block; }
 .btn.primary { background: var(--ink); color: var(--paper); }
 .btn:hover { background: var(--panel); color: var(--ink); }
 .hero figure { margin: 0; }
-.hero figure img { border-radius: 10px; }
+.hero figure img, .hero-video { border-radius: 10px; width: 100%; height: auto; display: block; background: #000; }
+@media (prefers-reduced-motion: reduce) { .hero-video { animation: none; } }
 figcaption { font-size: 14px; color: var(--ink-soft); margin-top: 8px; }
 
 /* sections */
