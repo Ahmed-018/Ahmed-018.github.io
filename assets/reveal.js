@@ -46,3 +46,31 @@
   window.addEventListener('resize', update);
   update();
 })();
+
+// Cards with a video preview: on hover (or focus/tap) show video and text together.
+// The card grows a little, and a matching negative margin keeps the page from shifting.
+(function () {
+  var cards = document.querySelectorAll('.proj.has-preview');
+  cards.forEach(function (card) {
+    function open() {
+      if (card.classList.contains('open')) return;
+      var before = card.offsetHeight;
+      card.classList.add('open');
+      var grow = card.offsetHeight - before;
+      card.style.marginBottom = (-grow) + 'px';
+      var v = card.querySelector('video'); if (v && v.paused) { v.play().catch(function () {}); }
+    }
+    function close() {
+      card.classList.remove('open');
+      card.style.marginBottom = '';
+    }
+    card.addEventListener('mouseenter', open);
+    card.addEventListener('mouseleave', close);
+    card.addEventListener('focusin', open);
+    card.addEventListener('focusout', function (e) { if (!card.contains(e.relatedTarget)) close(); });
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;
+      if (window.matchMedia('(hover: none)').matches) { card.classList.contains('open') ? close() : open(); }
+    });
+  });
+})();

@@ -222,3 +222,23 @@ section { position: relative; }
 .wide img, .pair img { width: 100%; height: auto; }
 .wide video { width: 100%; }
 .doc-bar { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 1.75rem; }
+
+/* project card with a video preview: video and text take turns; hover/focus shows both */
+.swap { position: relative; flex: 1; display: grid; margin: 0 0 1.125rem; min-height: 9.5rem; }
+.swap > * { grid-area: 1 / 1; }
+.swap-video { width: 100%; height: 100%; min-height: 9.5rem; object-fit: cover; object-position: center 40%; border-radius: 10px; border: 1px solid var(--line); background: #000; animation: swapA 12s infinite; }
+.swap-text { margin: 0; align-self: center; color: var(--ink-soft); font-size: 0.97rem; animation: swapB 12s infinite; }
+.proj .swap-text { flex: none; margin: 0; }
+@keyframes swapA { 0%, 42% { opacity: 1; } 50%, 92% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes swapB { 0%, 42% { opacity: 0; } 50%, 92% { opacity: 1; } 100% { opacity: 0; } }
+.proj.has-preview { position: relative; transition: transform .3s ease, box-shadow .3s ease, border-color .3s; }
+.proj.has-preview.open { z-index: 6; transform: scale(1.04); border-color: rgba(46,196,182,.6); box-shadow: 0 1.5rem 3rem -1rem rgba(0,0,0,.7); }
+.proj.has-preview.open .swap { display: flex; flex-direction: column; gap: 0.75rem; min-height: 0; }
+.proj.has-preview.open .swap-video { height: 12.5rem; min-height: 0; animation: fadeIn .35s ease both; }
+.proj.has-preview.open .swap-text { animation: fadeIn .35s ease both; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .swap-video { animation: none; opacity: 0; }
+  .swap-text { animation: none; opacity: 1; }
+}
+.wide.narrow { max-width: 44rem; margin-left: auto; margin-right: auto; }
