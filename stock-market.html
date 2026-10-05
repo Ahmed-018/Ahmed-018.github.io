@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock Market Simulator | Ahmed Alharthy</title>
+<meta name="description" content="Java and JavaFX stock market simulator where trading bots (random, RSI, moving average and an advanced RSI and momentum bot) compete. EE364 Advanced Programming project, King Abdulaziz University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="me" href="index.html"><span class="mark">AA</span>Ahmed Alharthy</a>
+    <nav aria-label="Main">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="cv" href="assets/Ahmed_Alharthy_CV.pdf">CV</a>
+    </nav>
+  </div>
+  <hr class="divider">
+</header>
+
+<main class="wrap case">
+  <div class="case-head">
+    <a class="btn small back" href="index.html#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>All projects</a>
+    <h1>Stock Market Simulator</h1>
+    <p class="lede">A Java desktop app where trading bots with different strategies compete in a simulated market, so you can watch which strategy grows its money and why.</p>
+  </div>
+
+  <div class="meta">
+    <div><b>Course</b>EE364 Advanced Programming</div>
+    <div><b>Team</b>Team project</div>
+    <div><b>When</b>2024</div>
+    <div><b>Tools</b>Java, JavaFX, OOP, CSV</div>
+  </div>
+
+  <div class="doc-bar">
+    <a class="btn primary" href="https://github.com/Abdullah-BS/Stock-Market-Simulator-EE364" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Code on GitHub</a>
+  </div>
+
+  <figure class="wide" id="video">
+    <video controls playsinline preload="metadata" poster="assets/img/sms-dashboard.jpg" width="1280" height="720" style="width:100%;height:auto;border-radius:8px;background:#000">
+      <source src="assets/video/stock-market-full.mp4" type="video/mp4">
+    </video>
+    <figcaption>Full demo of Phase 1 (7 min): starting the simulation, daily events, the trader table and the advice-vs-action reports.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <h2>The idea</h2>
+    <p>Each trader starts with 10,000 in cash and a few stocks. Every simulated day, random market events (loaded from a CSV file) push some stock prices up or down. Each trader then decides to buy, sell or hold based on its own strategy. The app tracks every trade and shows who is winning.</p>
+    <ul>
+      <li><b>Phase 1.</b> Three traders compete: a <b>Random</b> trader, an <b>RSI</b> trader (buys when RSI is below 30, sells above 70) and a <b>Moving Average</b> trader. To make it realistic, traders sometimes ignore good advice with a "human" excuse, like an internet outage or fear of loss.</li>
+      <li><b>Phase 2.</b> An advanced <b>Trading Bot</b> combines RSI and momentum, with a 10% stop-loss and a 35% profit-taking rule, and never makes human mistakes.</li>
+    </ul>
+
+    <h2>The dashboard</h2>
+    <p>The main screen shows the day counter and that day's events, a live grid of stock prices (green rising, red falling), a table of each trader's trades, win ratio and average profit, and a chart of every trader's net worth over time. The coloured circles show at a glance who is ahead. Results and the chart can be downloaded.</p>
+  </div>
+  <figure class="wide">
+    <img src="assets/img/sms-dashboard.jpg" alt="Simulator dashboard with stock price grid, trader table, net worth chart and trader status circles" width="1400" height="788">
+    <figcaption>The Phase 1 dashboard on day 18.</figcaption>
+  </figure>
+
+  <figure class="wide">
+    <img src="assets/img/sms-advice.jpg" alt="Report comparing each buy and sell advice with the action the RSI trader actually took" width="1135" height="482">
+    <figcaption>The advice-vs-action report: what the strategy said to do, and what the trader really did.</figcaption>
+  </figure>
+
+
+  <div class="prose">
+    <h2>How the code is organised (UML)</h2>
+    <p>The program follows object-oriented design: the interface, the simulation logic, the market data and the traders are separate classes, so each part can be changed without breaking the others.</p>
+  </div>
+  <figure class="wide narrow">
+    <img src="assets/img/uml-overview-gui.jpg" alt="UML diagram of Application, MainAppGUI, MarketSimulator and MainApp" width="1321" height="1217">
+    <figcaption>The top of the design: the JavaFX window, the simulation controller and the market.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <ul>
+      <li><b>Application / MainAppGUI.</b> MainAppGUI extends JavaFX's Application class and builds everything you see: the main menu, the Phase 1 and Phase 2 screens, the stock grid, tables, chart, trader circles and the download buttons. A timeline runs one simulated day at a time.</li>
+      <li><b>MainApp.</b> The simulation controller. It creates the list of traders for the chosen phase, keeps the day counter and runs each day by asking the market to update and then letting every trader act.</li>
+      <li><b>MarketSimulator.</b> Loads the stocks and events from CSV files. Each day it picks 5 events, applies each one to 2 to 3 random stocks, and keeps an event active for 5 to 10 days.</li>
+    </ul>
+  </div>
+  <figure class="wide narrow">
+    <img src="assets/img/uml-event-stocks.jpg" alt="UML classes for Event and Stocks" width="1600" height="1080">
+    <figcaption>The data classes: an Event has a name and an impact; a Stock has a symbol, company name, current price and price history.</figcaption>
+  </figure>
+
+  <figure class="wide narrow">
+    <img src="assets/img/uml-trader.jpg" alt="UML class for the abstract Trader" width="972" height="1224">
+    <figcaption>Trader: the shared base class for every bot.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p><b>Trader</b> is an abstract class that holds everything all traders share: cash, a portfolio of stocks, net-worth history, buy and sell logic, and performance metrics (total trades, wins, losses, average profit). It also stores the advice-vs-action logs and the list of "excuses" used when a trader ignores advice. Each subclass only has to define how it calculates its signal and executes a trade.</p>
+  </div>
+  <figure class="wide narrow">
+    <img src="assets/img/uml-overview-traders.jpg" alt="UML diagram showing Stocks, Trader and the four trader subclasses" width="1215" height="1188">
+    <figcaption>Inheritance: four trader types extend the Trader base class.</figcaption>
+  </figure>
+
+  <figure class="wide">
+    <img src="assets/img/uml-trader-types.jpg" alt="UML for RandomTrader, RSITrader, MovingAverageTrader, TradingBotTrader and the knowledgeableTrader interface" width="1600" height="649">
+    <figcaption>The four strategies, and the interface shared by the indicator-based traders.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <ul>
+      <li><b>RandomTrader</b> buys and sells at random, up to 2 trades a day. It is the baseline to beat.</li>
+      <li><b>RSITrader</b> and <b>MovingAverageTrader</b> use market indicators (RSI, and a moving average with a 15% threshold). Both implement the <b>knowledgeableTrader</b> interface, which marks them as traders that follow technical advice.</li>
+      <li><b>TradingBotTrader</b> (Phase 2) calculates both RSI and moving average, tracks the highest price and purchase time of each stock, and applies the stop-loss and profit-taking rules.</li>
+    </ul>
+  </div>
+  <figure class="wide">
+    <img src="assets/img/uml-mainapp.jpg" alt="UML class for MainApp" width="1600" height="838">
+    <figcaption>MainApp in detail: traders list, day counter and the simulation methods.</figcaption>
+  </figure>
+
+
+  <div class="case-end">
+    <a class="btn" href="https://github.com/Abdullah-BS/Stock-Market-Simulator-EE364" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Code on GitHub</a>
+    <a class="btn" href="index.html#projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>All projects</a>
+    <a class="btn primary" href="solar-vehicle.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="14 3 14 9 20 9"/></svg>Next project: Autonomous Vehicle</a>
+  </div>
+</main>
+
+<hr class="divider">
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Let's talk</h2>
+      <p><a href="mailto:ahmedalharthy018@gmail.com">ahmedalharthy018@gmail.com</a> | +966 56 650 6308</p>
+    </div>
+    <div class="card-actions">
+      <a class="btn primary" href="mailto:ahmedalharthy018@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>Email me</a>
+      <a class="btn" href="assets/Ahmed_Alharthy_CV.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><polyline points="7 10 12 15 17 10"/><path d="M5 21h14"/></svg>CV (PDF)</a>
+      <a class="btn" href="https://github.com/Ahmed-018"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/reveal.js" defer></script>
+</body>
+</html>

@@ -84,16 +84,24 @@
     <figcaption>How the software fits together: navigation, user interface, movement and safety stop.</figcaption>
   </figure>
 
-  <div class="pair">
-    <figure>
-      <img src="assets/img/gazebo-map.jpg" alt="Gazebo simulation world used to test navigation" width="763" height="380">
-      <figcaption>Testing navigation in a Gazebo world before driving the real vehicle.</figcaption>
-    </figure>
-    <figure>
-      <img src="assets/img/lidar-map.jpg" alt="Map of a real corridor built from LiDAR scans, shown in RViz" width="673" height="479">
-      <figcaption>A real map built from LiDAR scans, shown in RViz.</figcaption>
-    </figure>
+  <div class="prose">
+    <h2>Simulation and navigation</h2>
+    <p>Before driving the real vehicle, I tested the full ROS2 stack in a Gazebo simulation: a virtual model of the car with a simulated LiDAR (the blue rays) driving through a test track with obstacles. Then, on the saved map, Nav2 plans a path (the green line) and drives the vehicle to the selected goal while AMCL keeps track of where it is.</p>
   </div>
+  <figure class="wide">
+    <video autoplay muted loop playsinline controls preload="metadata" poster="assets/img/gazebo-sim-poster.jpg" width="960" height="552" aria-label="Gazebo simulation: the virtual vehicle scans a test track with its LiDAR while driving" style="width:100%;height:auto;border-radius:8px;background:#000">
+      <source src="assets/video/gazebo-sim.webm" type="video/webm">
+      <source src="assets/video/gazebo-sim.mp4" type="video/mp4">
+    </video>
+    <figcaption>Gazebo simulation: the virtual vehicle drives the test track while its LiDAR scans the walls and obstacles (2&times; speed).</figcaption>
+  </figure>
+  <figure class="wide">
+    <video autoplay muted loop playsinline controls preload="metadata" poster="assets/img/rviz-nav2-poster.jpg" width="960" height="632" aria-label="RViz2 view: Nav2 plans a path on the map and drives the vehicle to the goal" style="width:100%;height:auto;border-radius:8px;background:#000">
+      <source src="assets/video/rviz-nav2.webm" type="video/webm">
+      <source src="assets/video/rviz-nav2.mp4" type="video/mp4">
+    </video>
+    <figcaption>RViz2 with Nav2: the planned path (green) to the goal, the costmap around the vehicle, and its position on the map (2&times; speed).</figcaption>
+  </figure>
 
   <figure class="wide">
     <img src="assets/img/detection.jpg" alt="Terminal log showing a human detected and the robot stopping, next to a camera frame with a person detected at 0.86 confidence" width="902" height="262">
